@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+
+# Build files
+x64/
+Debug/
+Release/
+build/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Object files
+*.obj
+*.o
+
+# Executable
+*.exe
+
+# Debug symbols
+*.pdb
