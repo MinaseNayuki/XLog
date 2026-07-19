@@ -1,9 +1,5 @@
 #pragma once
 #include"log_format.h"
-enum Level
-{
-	debug, info, error, fatal
-};
 class xlog_format:public LogFormat
 {
 public:

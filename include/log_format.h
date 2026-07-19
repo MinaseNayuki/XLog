@@ -1,5 +1,9 @@
 #pragma once
 #include<string>
+enum Level
+{
+	debug, info, error, fatal
+};
 class LogFormat
 {
 public:

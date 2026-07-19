@@ -7,7 +7,12 @@ public:
 	{
 		console,file
 	};
+	enum texttype
+	{
+		normal, xml
+	};
 	out output = console;
+	texttype type = normal;
 	std::string filename = "log.txt";
 };
 

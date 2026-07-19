@@ -8,13 +8,27 @@ log_fac& log_fac::instance()
 }
 void log_fac::init(const xconfig& a)
 {
-	if (a.output == xconfig::console)
+	if (a.type == xconfig::normal)
 	{
-		logger_ = (*new logger(new xlog_format, new log_console_output));
+		if (a.output == xconfig::console)
+		{
+			logger_.init(new xlog_format, new log_console_output);
+		}
+		else
+		{
+			logger_.init(new xlog_format, new log_console_output);
+		}
 	}
 	else
 	{
-		logger_ = (*new logger(new xlog_format, new log_fileoutput(a.filename)));
+		if (a.output == xconfig::console)
+		{
+			logger_.init(new xml_format, new log_console_output);
+		}
+		else
+		{
+			logger_.init(new xml_format, new log_console_output);
+		}
 	}
 }
 logger& log_fac::getlogger()
