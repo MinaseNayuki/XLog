@@ -1,29 +1,29 @@
 # XLog
 
-A lightweight C++ logging framework.
+A lightweight and extensible C++ logging framework.
 
-XLog is a simple and extensible logging library implemented with C++17.
-The project is designed to practice modern C++ engineering concepts,
-including object-oriented design, polymorphism, abstraction and modular architecture.
+XLog is a simple logging library implemented with C++17.
+The project focuses on modern C++ engineering practices, including
+object-oriented design, abstraction, polymorphism and modular architecture.
 
 ## Features
 
 - [x] Logger core
-- [x] Log level support
-- [x] Custom log formatting
+- [x] Multiple log levels
 - [x] Console output
 - [x] File output
+- [x] Custom log format
+- [x] XML log format
 - [x] Configurable initialization
-- [x] Macro based logging interface
-- [x] Abstract output interface
+- [x] CMake build support
 
 Future improvements:
 
+- [ ] JSON log format
 - [ ] Thread-safe logging
 - [ ] Asynchronous logging
-- [ ] Log file rotation
+- [ ] Log rotation
 - [ ] Configuration file support
-- [ ] Performance benchmark
 
 
 ## Project Structure
