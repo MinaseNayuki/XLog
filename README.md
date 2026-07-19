@@ -26,29 +26,32 @@ Future improvements:
 - [ ] Configuration file support
 
 ## Project Structure
+
+```
 XLog
 |
 ├── include
-│ ├── logger.h
-│ ├── log_fac.h
-│ ├── log_format.h
-│ ├── log_output.h
-│ ├── xlog_format.h
-│ ├── xml_format.h
-│ └── xconfig.h
+│   ├── logger.h
+│   ├── log_fac.h
+│   ├── log_format.h
+│   ├── log_output.h
+│   ├── xlog_format.h
+│   ├── xml_format.h
+│   └── xconfig.h
 |
 ├── src
-│ ├── logger.cpp
-│ ├── log_fac.cpp
-│ ├── log_console_output.cpp
-│ ├── log_fileoutput.cpp
-│ ├── xlog_format.cpp
-│ └── xml_format.cpp
+│   ├── logger.cpp
+│   ├── log_fac.cpp
+│   ├── log_console_output.cpp
+│   ├── log_fileoutput.cpp
+│   ├── xlog_format.cpp
+│   └── xml_format.cpp
 |
 ├── example
-│ └── main.cpp
+│   └── main.cpp
 |
 └── CMakeLists.txt
+```
 
 ## Design
 
