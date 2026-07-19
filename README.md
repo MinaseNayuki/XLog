@@ -91,40 +91,66 @@ XmlFormat         FileOutput
 ## Usage
 
 Example:
-main.cpp
+
+```cpp
+#include "log_fac.h"
+
+int main()
+{
+    xconfig cfg;
+
+    cfg.output = xconfig::console;
+    cfg.type = xconfig::normal;
+
+    log_fac::instance().init(cfg);
+
+    LOGINFO("server started");
+
+    return 0;
+}
+```
 
 Output:
 
+```text
 2026-07-19 12:00:00 info server started:main.cpp 15
+```
 
 XML format example:
 
+```xml
 <log>
     <level>info</level>
     <message>server started</message>
     <file>main.cpp</file>
     <line>15</line>
 </log>
+```
 
-Build
+## Build
 
-Requirements
-C++17 compiler
-CMake 3.15+
-Build
+### Requirements
+
+- C++17 compiler
+- CMake 3.15+
+
+### Build
+
+```bash
 mkdir build
 cd build
 
 cmake ..
 
 cmake --build .
+```
 
-Design Goals
+## Design Goals
 
 The main purpose of this project is to practice:
 
-C++ class design
-Interface abstraction
-Resource management
-Library organization
-CMake project management
+- C++ class design
+- Interface abstraction
+- Resource management
+- Library organization
+- CMake project management
