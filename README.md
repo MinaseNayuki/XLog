@@ -91,25 +91,7 @@ XmlFormat         FileOutput
 ## Usage
 
 Example:
-
-```cpp
-#include "log_fac.h"
-
-int main()
-{
-    xconfig cfg;
-
-    cfg.output = xconfig::console;
-    cfg.type = xconfig::normal;
-
-
-    log_fac::instance().init(cfg);
-
-
-    LOGINFO("server started");
-
-    return 0;
-}
+main.cpp
 
 Output:
 
