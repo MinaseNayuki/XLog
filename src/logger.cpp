@@ -1,20 +1,19 @@
 #include "logger.h"
-#include<iostream>
+#include<stdexcept>
+#include<utility>
 using namespace std;
 logger::logger(){}
-void logger::init(LogFormat* fmt, LogOutput* out)
+void logger::init(std::unique_ptr<LogFormat> fmt, std::unique_ptr<LogOutput> out)
 {
-	if (format)delete format;
-	if (output)delete output;
-	format = fmt, output = out;
+	format = std::move(fmt), output = std::move(out);
 }
 void logger::Log(int level, const std::string& name, const std::string& file, int line)
 {
+	if (!format || !output)
+	{
+		throw logic_error("logger is not initialized");
+	}
 	string s = format->Format(level, name, file, line);
 	output->write(s);
 }
-logger::~logger()
-{
-	delete format; format = nullptr;
-	delete output; output = nullptr;
-}
+logger::~logger() = default;

@@ -8,4 +8,5 @@ class LogFormat
 {
 public:
 	virtual std::string Format(int level, const std::string& name, const std::string& file, int line) = 0;
+	virtual ~LogFormat() = default;
 };

@@ -75,3 +75,8 @@ target_link_libraries(
 
     XLog
 )
+
+if(MSVC)
+    target_compile_options(XLog PRIVATE /EHsc)
+    target_compile_options(example PRIVATE /EHsc)
+endif()

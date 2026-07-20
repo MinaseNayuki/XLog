@@ -12,22 +12,22 @@ void log_fac::init(const xconfig& a)
 	{
 		if (a.output == xconfig::console)
 		{
-			logger_.init(new xlog_format, new log_console_output);
+			logger_.init(make_unique<xlog_format>(), make_unique<log_console_output>());
 		}
 		else
 		{
-			logger_.init(new xlog_format, new log_console_output);
+			logger_.init(make_unique<xlog_format>(), make_unique<log_fileoutput>(a.filename));
 		}
 	}
 	else
 	{
 		if (a.output == xconfig::console)
 		{
-			logger_.init(new xml_format, new log_console_output);
+			logger_.init(make_unique<xml_format>(), make_unique<log_console_output>());
 		}
 		else
 		{
-			logger_.init(new xml_format, new log_console_output);
+			logger_.init(make_unique<xml_format>(), make_unique<log_fileoutput>(a.filename));
 		}
 	}
 }

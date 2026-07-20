@@ -8,22 +8,27 @@
 using namespace std;
 string GetCurrentTime()
 {
-    // 获取当前时间
+    // Get current local time.
     time_t now = time(nullptr);
 
-    // 转换成本地时间
-    tm* local = localtime(&now);
+    // Use a thread-safe localtime conversion.
+    tm local{};
+#ifdef _WIN32
+    localtime_s(&local, &now);
+#else
+    localtime_r(&now, &local);
+#endif
 
-    // 格式化
+    // Format as yyyy-mm-dd hh:mm:ss.
     std::stringstream ss;
 
     ss << std::setfill('0')
-        << local->tm_year + 1900 << "-"
-        << std::setw(2) << local->tm_mon + 1 << "-"
-        << std::setw(2) << local->tm_mday << " "
-        << std::setw(2) << local->tm_hour << ":"
-        << std::setw(2) << local->tm_min << ":"
-        << std::setw(2) << local->tm_sec;
+        << local.tm_year + 1900 << "-"
+        << std::setw(2) << local.tm_mon + 1 << "-"
+        << std::setw(2) << local.tm_mday << " "
+        << std::setw(2) << local.tm_hour << ":"
+        << std::setw(2) << local.tm_min << ":"
+        << std::setw(2) << local.tm_sec;
 
     return ss.str();
 }

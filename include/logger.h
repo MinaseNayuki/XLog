@@ -4,15 +4,16 @@
 #include"log_console_output.h"
 #include"log_fileoutput.h"
 #include"xml_format.h"
+#include<memory>
 class logger
 {
 public:
 	logger();
-	void init(LogFormat* fmt, LogOutput* out);
+	void init(std::unique_ptr<LogFormat> fmt, std::unique_ptr<LogOutput> out);
 	void Log(int level, const std::string& name, const std::string& file, int line);
 	~logger();
 private:
-	LogFormat* format;
-	LogOutput* output;
+	std::unique_ptr<LogFormat> format;
+	std::unique_ptr<LogOutput> output;
 };
 
